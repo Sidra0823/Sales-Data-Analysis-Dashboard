@@ -1,12 +1,21 @@
-# Streamlit Cloud Deployment Guide
+# Deployment Guide
 
 ## Your Project is Ready to Deploy! 🚀
 
-Follow these simple steps to get your Sales Dashboard live on the internet:
+Choose your preferred deployment platform and follow the steps to get your Sales Dashboard live on the internet.
 
 ---
 
-## 📋 Step-by-Step Deployment Instructions
+## 🎯 Choose Your Platform
+
+| Platform | Free Tier | Setup Time | URL Format | Best For |
+|----------|-----------|-----------|-----------|----------|
+| **Streamlit Cloud** | Yes (3 apps) | 2 min | `app-name.streamlit.app` | Quick deployment |
+| **Render** | Yes | 5 min | `app-name.onrender.com` | More flexibility |
+
+---
+
+## Option 1: Streamlit Cloud (Easiest)
 
 ### Step 1: Open Streamlit Cloud
 Go to: **https://share.streamlit.io**
@@ -106,7 +115,44 @@ Sales-Dashboard/
 
 ---
 
-## 💡 Next Steps After Deployment
+## Option 2: Render.com (Recommended for Production)
+
+### **Step 1: Create Render Account**
+Go to **https://render.com** and sign up with GitHub
+
+### **Step 2: Connect GitHub**
+- Click "New +" → "Web Service"
+- Connect your GitHub account
+- Select: `Sidra0823/Sales-Data-Analysis-Dashboard`
+
+### **Step 3: Configure Service**
+- **Name:** `sales-dashboard`
+- **Branch:** `main`
+- **Build Command:** `pip install -r requirements.txt`
+- **Start Command:** `streamlit run dashboard/app.py --server.port=$PORT --server.address=0.0.0.0`
+
+### **Step 4: Set Environment Variables**
+Add in Environment section:
+```
+STREAMLIT_SERVER_HEADLESS=true
+STREAMLIT_LOGGER_LEVEL=info
+```
+
+### **Step 5: Deploy**
+Click "Create Web Service" and wait 5-10 minutes
+
+### **Step 6: Access Your App**
+Your URL: `https://sales-dashboard-xxxx.onrender.com`
+
+---
+
+## 📚 Detailed Guides
+
+For complete step-by-step instructions, see:
+- **Streamlit Cloud:** This file (above)
+- **Render.com:** See `RENDER-DEPLOY.md`
+
+---
 
 1. **Test the live app** - Click through all sections
 2. **Share the URL** - Get feedback from others

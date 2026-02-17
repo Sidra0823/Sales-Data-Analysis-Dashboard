@@ -1,0 +1,17 @@
+.git
+.gitignore
+*.pyc
+__pycache__
+.pytest_cache
+.streamlit/cache
+*.egg-info
+dist
+build
+.venv
+venv
+*.md
+.github
+.vscode
+.idea
+Dockerfile
+docker-compose.yml
